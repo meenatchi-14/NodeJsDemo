@@ -1,5 +1,7 @@
 console.log("working")
 const[,,configPath]=process.argv;
+const fs =require("fs");//file systm access
+const os =require("os");//file systm access
 function calculate(num1,num2,operation){
     switch(operation){
         case "add":
@@ -16,7 +18,7 @@ function calculate(num1,num2,operation){
 }
 //calculate(parseInt(n1),parseInt(n2),op)
 
-const fs =require("fs");//file systm access
+
 
 // reading a file
 fs.readFile("sample.txt", "utf-8", (err, data) => {
@@ -46,16 +48,16 @@ fs.readFile("sample.txt", "utf-8", (err, data) => {
   });
   
   // delete a file
-  fs.unlink("./sample.txt", (err) => {
-    if (err) {
-      console.log("error", err);
-    } else {
-      console.log("file deleted successfully");
-    }
-  });
+//   fs.unlink("./sample.txt", (err) => {
+//     if (err) {
+//       console.log("error", err);
+//     } else {
+//       console.log("file deleted successfully");
+//     }
+//   });
 
   // read the config files
-//  readFile(configPath,"utf-8",(err, data) => {
+//  fs.readFile(configPath,"utf-8",(err, data) => {
 //     if (err) {
 //       console.log("Error Occured :", err);
 //     } else {
@@ -64,4 +66,19 @@ fs.readFile("sample.txt", "utf-8", (err, data) => {
 //       console.log(config);
 //     }
 // });
+
+// os info
+console.log("Total memory", os.totalmem());
+console.log("Free memory space", os.freemem());
+console.log("version", os.version());
+console.log("CPUS", os.cpus());
+
+// date
+let time = Date.now();
+console.log("Timeeeee", time);
+let date = new Date();
+console.log("Date----------------", date.getDate());
+console.log("month----------------", date.getMonth());
+console.log("year----------------", date.getFullYear());
+console.log("Today----------------", date.toUTCString().slice(0, 17));
    
